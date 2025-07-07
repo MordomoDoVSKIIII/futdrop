@@ -18,10 +18,22 @@
         <button onclick="showSection('home')" class="hover:text-gray-400">Home</button>
         <button onclick="showSection('about')" class="hover:text-gray-400">About</button>
         <button onclick="showSection('contact')" class="hover:text-gray-400">Contact</button>
-        <!-- Language Switch -->
-        <button onclick="switchLanguage()" class="hover:text-gray-400">Language: <span id="lang">EN</span></button>
-        <!-- Currency Button -->
-        <button onclick="toggleCurrency()" class="hover:text-gray-400">Currency: <span id="curr">$</span></button>
+
+        <!-- Language Dropdown -->
+        <select id="language-select" onchange="changeLanguage()" class="bg-black text-white border border-white px-2 py-1 rounded">
+          <option value="EN">EN</option>
+          <option value="PT">PT</option>
+          <option value="FR">FR</option>
+        </select>
+
+        <!-- Currency Dropdown -->
+        <select id="currency-select" onchange="changeCurrency()" class="bg-black text-white border border-white px-2 py-1 rounded">
+          <option value="$">$ USD</option>
+          <option value="€">€ EUR</option>
+          <option value="₹">₹ INR</option>
+          <option value="£">£ GBP</option>
+          <option value="¥">¥ JPY</option>
+        </select>
       </div>
     </div>
   </nav>
@@ -87,19 +99,6 @@
 
   <!-- Script -->
   <script>
-    const currencySymbols = ['$', '€', '₹', '£', '¥'];
-    let currentCurrency = 0;
-
-    function toggleCurrency() {
-      currentCurrency = (currentCurrency + 1) % currencySymbols.length;
-      const symbol = currencySymbols[currentCurrency];
-      document.getElementById('curr').textContent = symbol;
-      document.querySelectorAll('.price').forEach(el => {
-        const base = el.getAttribute('data-price');
-        el.textContent = symbol + parseFloat(base).toFixed(2);
-      });
-    }
-
     function showSection(section) {
       document.getElementById('home-section').style.display = 'none';
       document.getElementById('about-section').style.display = 'none';
@@ -107,16 +106,16 @@
       document.getElementById(`${section}-section`).style.display = 'block';
     }
 
-    // Fake language switching
-    const languages = ['EN', 'PT', 'FR'];
-    let currentLang = 0;
+    function changeCurrency() {
+      const currency = document.getElementById('currency-select').value;
+      document.querySelectorAll('.price').forEach(el => {
+        const base = el.getAttribute('data-price');
+        el.textContent = currency + parseFloat(base).toFixed(2);
+      });
+    }
 
-    function switchLanguage() {
-      currentLang = (currentLang + 1) % languages.length;
-      const lang = languages[currentLang];
-      document.getElementById('lang').textContent = lang;
-
-      // Simulated translation for home section only
+    function changeLanguage() {
+      const lang = document.getElementById('language-select').value;
       const title = document.getElementById('home-title');
       const subtitle = document.getElementById('home-subtitle');
       const button = document.getElementById('home-button');
