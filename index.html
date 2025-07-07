@@ -2,118 +2,122 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FutDrop</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FutDrop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Translate -->
-    <meta name="google" content="notranslate">
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Google Translate Widget -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
 
-    <!-- Top Bar with Language & Currency Selectors -->
-    <div class="bg-gray-800 py-2 px-6 flex justify-end items-center text-sm space-x-4">
-        <!-- Language Selector -->
-        <div id="google_translate_element"></div>
-
-        <!-- Currency Selector -->
-        <div>
-            <label for="currency" class="mr-2">Currency:</label>
-            <select id="currency" class="bg-gray-700 text-white p-1 rounded">
-                <option value="USD" selected>$ USD</option>
-                <option value="EUR">€ EUR</option>
-                <option value="INR">₹ INR</option>
-                <option value="GBP">£ GBP</option>
-                <option value="JPY">¥ JPY</option>
-            </select>
-        </div>
+  <!-- Top Controls -->
+  <div class="bg-gray-800 py-2 px-6 flex justify-end items-center text-sm space-x-4">
+    <div id="google_translate_element"></div>
+    <div>
+      <button onclick="toggleCurrency()" class="bg-gray-700 px-3 py-1 rounded text-white">Change Currency</button>
     </div>
+  </div>
 
-    <!-- Navbar -->
-    <nav class="bg-black text-white py-4">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <div class="text-2xl font-bold">FutDrop</div>
-            <div class="space-x-4">
-                <a href="#" class="hover:text-gray-400">Home</a>
-                <a href="#" class="hover:text-gray-400">About</a>
-                <a href="#" class="hover:text-gray-400">Contact</a>
-            </div>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="bg-black text-white py-4">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div class="text-2xl font-bold">FutDrop</div>
+      <div class="space-x-4">
+        <button onclick="showSection('home')" class="hover:text-gray-400">Home</button>
+        <button onclick="showSection('about')" class="hover:text-gray-400">About</button>
+        <button onclick="showSection('contact')" class="hover:text-gray-400">Contact</button>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center"
+  <!-- Sections -->
+  <main id="content" class="p-6">
+
+    <!-- Home Section -->
+    <section id="home-section" class="block">
+      <section class="relative h-screen bg-cover bg-center"
         style="background-image: url('https://via.placeholder.com/1920x1080');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div
-            class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-center">
-            <h1 class="text-5xl font-extrabold leading-tight">Welcome to FutDrop</h1>
-            <p class="mt-4 text-lg">Your destination for the latest football content.</p>
-            <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600">Get
-                Started</a>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-center">
+          <h1 class="text-5xl font-extrabold leading-tight">Welcome to FutDrop</h1>
+          <p class="mt-4 text-lg">Your destination for the latest football content.</p>
+          <p class="mt-4 text-yellow-400 price" data-price="29.99">$29.99</p>
+          <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600">Get Started</a>
         </div>
+      </section>
     </section>
 
-    <!-- Features Section -->
-    <section class="py-16 bg-gray-800">
-        <div class="max-w-7xl mx-auto text-center">
-            <h2 class="text-4xl font-bold">Why FutDrop?</h2>
-            <p class="mt-4 text-lg text-gray-400">Join the community and stay updated with the latest football news and
-                highlights.</p>
-            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-gray-700 p-8 rounded-lg">
-                    <h3 class="text-xl font-semibold">Latest News</h3>
-                    <p class="mt-2 text-gray-300">Stay updated with global football news.</p>
-                    <p class="mt-2 text-yellow-400 price" data-price="19.99">$19.99</p>
-                </div>
-                <div class="bg-gray-700 p-8 rounded-lg">
-                    <h3 class="text-xl font-semibold">Exclusive Content</h3>
-                    <p class="mt-2 text-gray-300">Get behind-the-scenes insights and videos.</p>
-                    <p class="mt-2 text-yellow-400 price" data-price="29.99">$29.99</p>
-                </div>
-                <div class="bg-gray-700 p-8 rounded-lg">
-                    <h3 class="text-xl font-semibold">Join the Community</h3>
-                    <p class="mt-2 text-gray-300">Share your passion with football fans worldwide.</p>
-                    <p class="mt-2 text-yellow-400 price" data-price="9.99">$9.99</p>
-                </div>
-            </div>
-        </div>
+    <!-- About Section -->
+    <section id="about-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg">
+      <h2 class="text-3xl font-bold mb-4">🟡 Welcome to Futdrop</h2>
+      <p>Retro. Modern. 100% Football.</p><br />
+      <p>
+        Futdrop was born from friendship and built on a shared obsession: football. What started as a few friends
+        collecting and swapping jerseys turned into something bigger — a brand for fans who live and breathe the game.
+      </p><br />
+      <p>
+        We specialize in both retro classics that take you back to football’s golden eras, and modern designs that keep
+        you sharp on and off the pitch. Every jersey we drop is more than just fabric — it's a piece of football
+        culture, crafted for those who know the difference between a kit and a kit.
+      </p><br />
+      <ul class="list-disc ml-6">
+        <li>🧵 Designed with passion.</li>
+        <li>⚽ Driven by football.</li>
+        <li>👊 Founded by friends. Made for fans.</li>
+      </ul><br />
+      <p>Join the drop. Wear the game.<br />#Futdrop #FromRetroToFresh #ForTheFans</p>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-black py-6 text-center text-gray-400">
-        <p>&copy; 2025 FutDrop. All Rights Reserved.</p>
-    </footer>
+    <!-- Contact Section -->
+    <section id="contact-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg">
+      <h2 class="text-3xl font-bold mb-4">📞 Contact Us</h2>
+      <p>Got a question about a jersey, a drop, or your order? We’re here to help — just reach out!</p><br />
+      <p>Founders & Contact Info:</p>
+      <ul class="ml-6">
+        <li>📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com</li>
+        <li>📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com</li>
+        <li>📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com</li>
+      </ul><br />
+      <p>🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.</p><br />
+      <p class="text-red-400 font-semibold">
+        ⚠️ Important:<br />
+        All sales are final. We do not offer refunds.<br />
+        Please double-check sizes, product details, and photos before placing your order.
+      </p>
+    </section>
 
-    <!-- Currency Change Script -->
-    <script>
-        const currencySymbols = {
-            USD: "$",
-            EUR: "€",
-            INR: "₹",
-            GBP: "£",
-            JPY: "¥"
-        };
+  </main>
 
-        document.getElementById('currency').addEventListener('change', function () {
-            const selectedCurrency = this.value;
-            const symbol = currencySymbols[selectedCurrency] || "$";
-            document.querySelectorAll('.price').forEach(el => {
-                const basePrice = parseFloat(el.getAttribute('data-price'));
-                el.textContent = symbol + basePrice.toFixed(2);
-            });
-        });
-    </script>
+  <!-- Script Section -->
+  <script>
+    const currencySymbols = ['$', '€', '₹', '£', '¥'];
+    let currentSymbolIndex = 0;
+
+    function toggleCurrency() {
+      currentSymbolIndex = (currentSymbolIndex + 1) % currencySymbols.length;
+      const newSymbol = currencySymbols[currentSymbolIndex];
+      document.querySelectorAll('.price').forEach(el => {
+        const base = el.getAttribute('data-price');
+        el.textContent = newSymbol + parseFloat(base).toFixed(2);
+      });
+    }
+
+    function showSection(section) {
+      document.getElementById('home-section').style.display = 'none';
+      document.getElementById('about-section').style.display = 'none';
+      document.getElementById('contact-section').style.display = 'none';
+      document.getElementById(`${section}-section`).style.display = 'block';
+    }
+  </script>
+
 </body>
 
 </html>
-
