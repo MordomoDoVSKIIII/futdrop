@@ -6,9 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FutDrop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Translate -->
+    <meta name="google" content="notranslate">
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
+
+    <!-- Top Bar with Language & Currency Selectors -->
+    <div class="bg-gray-800 py-2 px-6 flex justify-end items-center text-sm space-x-4">
+        <!-- Language Selector -->
+        <div id="google_translate_element"></div>
+
+        <!-- Currency Selector -->
+        <div>
+            <label for="currency" class="mr-2">Currency:</label>
+            <select id="currency" class="bg-gray-700 text-white p-1 rounded">
+                <option value="USD" selected>$ USD</option>
+                <option value="EUR">€ EUR</option>
+                <option value="INR">₹ INR</option>
+                <option value="GBP">£ GBP</option>
+                <option value="JPY">¥ JPY</option>
+            </select>
+        </div>
+    </div>
 
     <!-- Navbar -->
     <nav class="bg-black text-white py-4">
@@ -23,32 +51,39 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080');">
+    <section class="relative h-screen bg-cover bg-center"
+        style="background-image: url('https://via.placeholder.com/1920x1080');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-center">
+        <div
+            class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-center">
             <h1 class="text-5xl font-extrabold leading-tight">Welcome to FutDrop</h1>
             <p class="mt-4 text-lg">Your destination for the latest football content.</p>
-            <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600">Get Started</a>
+            <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600">Get
+                Started</a>
         </div>
     </section>
 
-    <!-- Features Section (Optional) -->
+    <!-- Features Section -->
     <section class="py-16 bg-gray-800">
         <div class="max-w-7xl mx-auto text-center">
             <h2 class="text-4xl font-bold">Why FutDrop?</h2>
-            <p class="mt-4 text-lg text-gray-400">Join the community and stay updated with the latest football news and highlights.</p>
+            <p class="mt-4 text-lg text-gray-400">Join the community and stay updated with the latest football news and
+                highlights.</p>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-gray-700 p-8 rounded-lg">
                     <h3 class="text-xl font-semibold">Latest News</h3>
-                    <p class="mt-2 text-gray-300">Stay updated with the latest football news from all over the world.</p>
+                    <p class="mt-2 text-gray-300">Stay updated with global football news.</p>
+                    <p class="mt-2 text-yellow-400 price" data-price="19.99">$19.99</p>
                 </div>
                 <div class="bg-gray-700 p-8 rounded-lg">
                     <h3 class="text-xl font-semibold">Exclusive Content</h3>
-                    <p class="mt-2 text-gray-300">Get exclusive content and behind-the-scenes videos.</p>
+                    <p class="mt-2 text-gray-300">Get behind-the-scenes insights and videos.</p>
+                    <p class="mt-2 text-yellow-400 price" data-price="29.99">$29.99</p>
                 </div>
                 <div class="bg-gray-700 p-8 rounded-lg">
                     <h3 class="text-xl font-semibold">Join the Community</h3>
-                    <p class="mt-2 text-gray-300">Connect with other football fans and share your thoughts.</p>
+                    <p class="mt-2 text-gray-300">Share your passion with football fans worldwide.</p>
+                    <p class="mt-2 text-yellow-400 price" data-price="9.99">$9.99</p>
                 </div>
             </div>
         </div>
@@ -59,6 +94,26 @@
         <p>&copy; 2025 FutDrop. All Rights Reserved.</p>
     </footer>
 
+    <!-- Currency Change Script -->
+    <script>
+        const currencySymbols = {
+            USD: "$",
+            EUR: "€",
+            INR: "₹",
+            GBP: "£",
+            JPY: "¥"
+        };
+
+        document.getElementById('currency').addEventListener('change', function () {
+            const selectedCurrency = this.value;
+            const symbol = currencySymbols[selectedCurrency] || "$";
+            document.querySelectorAll('.price').forEach(el => {
+                const basePrice = parseFloat(el.getAttribute('data-price'));
+                el.textContent = symbol + basePrice.toFixed(2);
+            });
+        });
+    </script>
 </body>
 
 </html>
+
