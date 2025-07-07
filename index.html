@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FutDrop</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Navbar -->
@@ -20,55 +18,73 @@
         <button onclick="showSection('contact')" class="hover:text-gray-400">Contact</button>
 
         <!-- Language Dropdown -->
-        <select id="language-select" onchange="changeLanguage()" class="bg-black text-white border border-white px-2 py-1 rounded">
-          <option value="EN">EN</option>
-          <option value="PT">PT</option>
-          <option value="FR">FR</option>
+        <select id="language-select" onchange="changeLanguage()" class="bg-black text-white border border-white px-2 py-1 rounded max-h-40 overflow-y-auto">
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+          <option value="fr">Français</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="zh">中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="it">Italiano</option>
+          <option value="ar">العربية</option>
+          <option value="ru">Русский</option>
+          <option value="hi">हिन्दी</option>
+          <option value="bn">বাংলা</option>
+          <option value="tr">Türkçe</option>
+          <option value="pl">Polski</option>
+          <option value="uk">Українська</option>
+          <option value="fa">فارسی</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="th">ไทย</option>
         </select>
 
         <!-- Currency Dropdown -->
-        <select id="currency-select" onchange="changeCurrency()" class="bg-black text-white border border-white px-2 py-1 rounded">
-          <option value="$">$ USD</option>
-          <option value="€">€ EUR</option>
-          <option value="₹">₹ INR</option>
-          <option value="£">£ GBP</option>
-          <option value="¥">¥ JPY</option>
+        <select id="currency-select" onchange="changeCurrency()" class="bg-black text-white border border-white px-2 py-1 rounded max-h-40 overflow-y-auto">
+          <option value="$">$ US Dollar</option>
+          <option value="€">€ Euro</option>
+          <option value="¥">¥ Japanese Yen</option>
+          <option value="£">£ British Pound</option>
+          <option value="₽">₽ Russian Ruble</option>
+          <option value="₹">₹ Indian Rupee</option>
+          <option value="₩">₩ South Korean Won</option>
+          <option value="R">R South African Rand</option>
+          <option value="R$">R$ Brazilian Real</option>
+          <option value="₺">₺ Turkish Lira</option>
+          <option value="CHF">CHF Swiss Franc</option>
+          <option value="C$">C$ Canadian Dollar</option>
+          <option value="A$">A$ Australian Dollar</option>
+          <option value="kr">kr Swedish/Norwegian Krona</option>
+          <option value="HK$">HK$ Hong Kong Dollar</option>
+          <option value="SG$">SG$ Singapore Dollar</option>
+          <option value="MX$">MX$ Mexican Peso</option>
         </select>
       </div>
     </div>
   </nav>
 
   <!-- Main Content -->
-  <main id="content" class="p-6">
-
-    <!-- Home Section -->
-    <section id="home-section" class="block">
-      <section class="relative h-screen bg-cover bg-center"
-        style="background-image: url('https://via.placeholder.com/1920x1080');">
+  <main class="p-6">
+    <!-- Home -->
+    <section id="home-section" class="block text-center">
+      <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-center">
           <h1 class="text-5xl font-extrabold leading-tight" id="home-title">Welcome to FutDrop</h1>
           <p class="mt-4 text-lg" id="home-subtitle">Your destination for the latest football content.</p>
           <p class="mt-4 text-yellow-400 price" data-price="29.99">$29.99</p>
-          <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600"
-            id="home-button">Get Started</a>
+          <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600" id="home-button">Get Started</a>
         </div>
       </section>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg">
       <h2 class="text-3xl font-bold mb-4">🟡 Welcome to Futdrop</h2>
       <p>Retro. Modern. 100% Football.</p><br />
-      <p>
-        Futdrop was born from friendship and built on a shared obsession: football. What started as a few friends
-        collecting and swapping jerseys turned into something bigger — a brand for fans who live and breathe the game.
-      </p><br />
-      <p>
-        We specialize in both retro classics that take you back to football’s golden eras, and modern designs that keep
-        you sharp on and off the pitch. Every jersey we drop is more than just fabric — it's a piece of football
-        culture, crafted for those who know the difference between a kit and a kit.
-      </p><br />
+      <p>Futdrop was born from friendship and built on a shared obsession: football...</p><br />
       <ul class="list-disc ml-6">
         <li>🧵 Designed with passion.</li>
         <li>⚽ Driven by football.</li>
@@ -77,40 +93,31 @@
       <p>Join the drop. Wear the game.<br />#Futdrop #FromRetroToFresh #ForTheFans</p>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg">
       <h2 class="text-3xl font-bold mb-4">📞 Contact Us</h2>
-      <p>Got a question about a jersey, a drop, or your order? We’re here to help — just reach out!</p><br />
-      <p>Founders & Contact Info:</p>
-      <ul class="ml-6">
-        <li>📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com</li>
-        <li>📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com</li>
-        <li>📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com</li>
-      </ul><br />
-      <p>🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.</p><br />
-      <p class="text-red-400 font-semibold">
-        ⚠️ Important:<br />
-        All sales are final. We do not offer refunds.<br />
-        Please double-check sizes, product details, and photos before placing your order.
-      </p>
+      <p>📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com</p>
+      <p>📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com</p>
+      <p>📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com</p>
+      <p class="mt-4">🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.</p>
+      <p class="text-red-400 font-semibold mt-4">⚠️ Important:<br>All sales are final. We do not offer refunds.<br>Please double-check sizes, product details, and photos before placing your order.</p>
     </section>
-
   </main>
 
-  <!-- Script -->
+  <!-- Scripts -->
   <script>
     function showSection(section) {
       document.getElementById('home-section').style.display = 'none';
       document.getElementById('about-section').style.display = 'none';
       document.getElementById('contact-section').style.display = 'none';
-      document.getElementById(`${section}-section`).style.display = 'block';
+      document.getElementById(section + '-section').style.display = 'block';
     }
 
     function changeCurrency() {
-      const currency = document.getElementById('currency-select').value;
+      const symbol = document.getElementById('currency-select').value;
       document.querySelectorAll('.price').forEach(el => {
         const base = el.getAttribute('data-price');
-        el.textContent = currency + parseFloat(base).toFixed(2);
+        el.textContent = symbol + parseFloat(base).toFixed(2);
       });
     }
 
@@ -120,11 +127,11 @@
       const subtitle = document.getElementById('home-subtitle');
       const button = document.getElementById('home-button');
 
-      if (lang === 'PT') {
+      if (lang === 'pt') {
         title.textContent = 'Bem-vindo ao FutDrop';
         subtitle.textContent = 'Seu destino para o melhor do futebol.';
         button.textContent = 'Começar';
-      } else if (lang === 'FR') {
+      } else if (lang === 'fr') {
         title.textContent = 'Bienvenue chez FutDrop';
         subtitle.textContent = 'Votre destination pour le meilleur du football.';
         button.textContent = 'Commencer';
@@ -135,7 +142,5 @@
       }
     }
   </script>
-
 </body>
-
 </html>
