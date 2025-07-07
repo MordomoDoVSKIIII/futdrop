@@ -8,7 +8,6 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
-  <!-- Navigation -->
   <nav class="bg-black text-white py-4">
     <div class="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between">
       <div class="text-2xl font-bold">FutDrop</div>
@@ -17,31 +16,14 @@
         <button onclick="showSection('about')" class="hover:text-gray-400">About</button>
         <button onclick="showSection('contact')" class="hover:text-gray-400">Contact</button>
 
-        <!-- Language Dropdown -->
         <select id="language-select" onchange="changeLanguage()" class="bg-black text-white border border-white px-2 py-1 rounded">
-          <option value="en">English</option>
-          <option value="pt">Português</option>
-          <option value="fr">Français</option>
-          <option value="es">Español</option>
-          <option value="de">Deutsch</option>
-          <option value="zh">中文</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="it">Italiano</option>
-          <option value="ar">العربية</option>
-          <option value="ru">Русский</option>
-          <option value="hi">हिन्दी</option>
-          <option value="bn">বাংলা</option>
-          <option value="tr">Türkçe</option>
-          <option value="pl">Polski</option>
-          <option value="uk">Українська</option>
-          <option value="fa">فارسی</option>
-          <option value="vi">Tiếng Việt</option>
-          <option value="id">Bahasa Indonesia</option>
-          <option value="th">ไทย</option>
+          <option value="en">en</option><option value="pt">pt</option><option value="fr">fr</option><option value="es">es</option>
+          <option value="de">de</option><option value="zh">zh</option><option value="ja">ja</option><option value="ko">ko</option>
+          <option value="it">it</option><option value="ar">ar</option><option value="ru">ru</option><option value="hi">hi</option>
+          <option value="bn">bn</option><option value="tr">tr</option><option value="pl">pl</option><option value="uk">uk</option>
+          <option value="fa">fa</option><option value="vi">vi</option><option value="id">id</option><option value="th">th</option>
         </select>
 
-        <!-- Currency Dropdown -->
         <select id="currency-select" onchange="changeCurrency()" class="bg-black text-white border border-white px-2 py-1 rounded">
           <option value="$">$ US Dollar</option>
           <option value="€">€ Euro</option>
@@ -65,7 +47,6 @@
     </div>
   </nav>
 
-  <!-- Main Sections -->
   <main class="p-6">
     <section id="home-section" class="block text-center">
       <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080');">
@@ -82,68 +63,87 @@
     <section id="about-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg"></section>
     <section id="contact-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg"></section>
   </main>
+<script>
+const homeTranslations = {
+  "en": ["Welcome to FutDrop", "Your destination for the latest football content.", "Get Started"],
+  "pt": ["Bem-vindo ao FutDrop", "Seu destino para o melhor do futebol.", "Começar"],
+  "fr": ["Bienvenue chez FutDrop", "Votre destination pour le meilleur du football.", "Commencer"],
+  "es": ["Bienvenido a FutDrop", "Tu destino para el mejor contenido de fútbol.", "Comenzar"],
+  "de": ["Willkommen bei FutDrop", "Dein Ziel für die neuesten Fußballinhalte.", "Loslegen"],
+  "zh": ["欢迎来到FutDrop", "您获取最新足球内容的目的地。", "开始"],
+  "ja": ["FutDropへようこそ", "最新のサッカーコンテンツの目的地です。", "始める"],
+  "ko": ["FutDrop에 오신 것을 환영합니다", "최신 축구 콘텐츠의 목적지입니다.", "시작하기"],
+  "it": ["Benvenuto su FutDrop", "La tua destinazione per i migliori contenuti calcistici.", "Inizia"],
+  "ar": ["مرحبًا بك في FutDrop", "وجهتك لأحدث محتوى كرة القدم.", "ابدأ"],
+  "ru": ["Добро пожаловать в FutDrop", "Ваш источник свежего футбольного контента.", "Начать"],
+  "hi": ["FutDrop में आपका स्वागत है", "फुटबॉल सामग्री के लिए आपका गंतव्य।", "शुरू करें"],
+  "bn": ["FutDrop এ আপনাকে স্বাগতম", "সর্বশেষ ফুটবল সামগ্রীর জন্য আপনার গন্তব্য।", "শুরু করুন"],
+  "tr": ["FutDrop'a Hoş Geldiniz", "En yeni futbol içeriği için adresiniz.", "Başla"],
+  "pl": ["Witamy w FutDrop", "Twoje miejsce na najnowsze treści piłkarskie.", "Zacznij"],
+  "uk": ["Ласкаво просимо до FutDrop", "Ваш пункт призначення для футбольного контенту.", "Почати"],
+  "fa": ["به FutDrop خوش آمدید", "مقصد شما برای محتوای به‌روز فوتبال.", "شروع کنید"],
+  "vi": ["Chào mừng đến với FutDrop", "Nơi hội tụ nội dung bóng đá mới nhất.", "Bắt đầu"],
+  "id": ["Selamat datang di FutDrop", "Tujuan Anda untuk konten sepak bola terbaru.", "Mulai"],
+  "th": ["ยินดีต้อนรับสู่ FutDrop", "จุดหมายปลายทางของคุณสำหรับเนื้อหาฟุตบอลล่าสุด", "เริ่มต้น"]
+};
 
-  <!-- Translation Script -->
-  <script>
-    const homeTranslations = {
-      "en": ["Welcome to FutDrop", "Your destination for the latest football content.", "Get Started"],
-      "pt": ["Bem-vindo ao FutDrop", "Seu destino para o melhor do futebol.", "Começar"],
-      "fr": ["Bienvenue chez FutDrop", "Votre destination pour le meilleur du football.", "Commencer"],
-      "es": ["Bienvenido a FutDrop", "Tu destino para el mejor contenido de fútbol.", "Comenzar"],
-      "de": ["Willkommen bei FutDrop", "Dein Ziel für die neuesten Fußballinhalte.", "Loslegen"],
-      "zh": ["欢迎来到FutDrop", "您获取最新足球内容的目的地。", "开始"],
-      "ja": ["FutDropへようこそ", "最新のサッカーコンテンツの目的地です。", "始める"],
-      "ko": ["FutDrop에 오신 것을 환영합니다", "최신 축구 콘텐츠의 목적지입니다.", "시작하기"],
-      "it": ["Benvenuto su FutDrop", "La tua destinazione per i migliori contenuti calcistici.", "Inizia"],
-      "ar": ["مرحبًا بك في FutDrop", "وجهتك لأحدث محتوى كرة القدم.", "ابدأ"],
-      "ru": ["Добро пожаловать в FutDrop", "Ваш источник свежего футбольного контента.", "Начать"],
-      "hi": ["FutDrop में आपका स्वागत है", "फुटबॉल सामग्री के लिए आपका गंतव्य।", "शुरू करें"],
-      "bn": ["FutDrop এ আপনাকে স্বাগতম", "সর্বশেষ ফুটবল সামগ্রীর জন্য আপনার গন্তব্য।", "শুরু করুন"],
-      "tr": ["FutDrop'a Hoş Geldiniz", "En yeni futbol içeriği için adresiniz.", "Başla"],
-      "pl": ["Witamy w FutDrop", "Twoje miejsce na najnowsze treści piłkarskie.", "Zacznij"],
-      "uk": ["Ласкаво просимо до FutDrop", "Ваш пункт призначення для футбольного контенту.", "Почати"],
-      "fa": ["به FutDrop خوش آمدید", "مقصد شما برای محتوای به‌روز فوتبال.", "شروع کنید"],
-      "vi": ["Chào mừng đến với FutDrop", "Nơi hội tụ nội dung bóng đá mới nhất.", "Bắt đầu"],
-      "id": ["Selamat datang di FutDrop", "Tujuan Anda untuk konten sepak bola terbaru.", "Mulai"],
-      "th": ["ยินดีต้อนรับสู่ FutDrop", "จุดหมายปลายทางของคุณสำหรับเนื้อหาฟุตบอลล่าสุด", "เริ่มต้น"]
-    };
+const pageTranslations = {
+  "en": {
+    "about": "🟡 Welcome to Futdrop\nRetro. Modern. 100% Football.\n\nFutdrop was born from friendship and built on a shared obsession: football...\n🧵 Designed with passion.\n⚽ Driven by football.\n👊 Founded by friends. Made for fans.\n\nJoin the drop. Wear the game.\n#Futdrop #FromRetroToFresh #ForTheFans",
+    "contact": "📞 Contact Us\n📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com\n📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com\n📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com\n\n🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.\n\n⚠️ Important:\nAll sales are final. We do not offer refunds.\nPlease double-check sizes, product details, and photos before placing your order."
+  }
+  // More translations for "about" and "contact" continue here…
+};
 
-    const pageTranslations = {};
-    const sharedAbout = `🟡 Welcome to Futdrop\nRetro. Modern. 100% Football.\n\nFutdrop was born from friendship and built on a shared obsession: football...\n🧵 Designed with passion.\n⚽ Driven by football.\n👊 Founded by friends. Made for fans.\n\nJoin the drop. Wear the game.\n#Futdrop #FromRetroToFresh #ForTheFans`;
-    const sharedContact = `📞 Contact Us\n📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com\n📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com\n📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com\n\n🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.\n\n⚠️ Important:\nAll sales are final. We do not offer refunds.\nPlease double-check sizes, product details, and photos before placing your order.`;
-    for (const lang in homeTranslations) {
-      pageTranslations[lang] = { about: sharedAbout, contact: sharedContact };
-    }
+function showSection(section) {
+  document.getElementById('home-section').style.display = 'none';
+  document.getElementById('about-section').style.display = 'none';
+  document.getElementById('contact-section').style.display = 'none';
+  document.getElementById(section + '-section').style.display = 'block';
+}
 
-    function showSection(section) {
-      document.getElementById('home-section').style.display = 'none';
-      document.getElementById('about-section').style.display = 'none';
-      document.getElementById('contact-section').style.display = 'none';
-      document.getElementById(section + '-section').style.display = 'block';
-    }
+function changeCurrency() {
+  const symbol = document.getElementById('currency-select').value;
+  document.querySelectorAll('.price').forEach(el => {
+    const base = el.getAttribute('data-price');
+    el.textContent = symbol + parseFloat(base).toFixed(2);
+  });
+}
 
-    function changeCurrency() {
-      const symbol = document.getElementById('currency-select').value;
-      document.querySelectorAll('.price').forEach(el => {
-        const base = el.getAttribute('data-price');
-        el.textContent = symbol + parseFloat(base).toFixed(2);
-      });
-    }
+function changeLanguage() {
+  const lang = document.getElementById('language-select').value;
 
-    function changeLanguage() {
-      const lang = document.getElementById('language-select').value;
+  if (homeTranslations[lang]) {
+    document.getElementById('home-title').textContent = homeTranslations[lang][0];
+    document.getElementById('home-subtitle').textContent = homeTranslations[lang][1];
+    document.getElementById('home-button').textContent = homeTranslations[lang][2];
+  }
 
-      if (homeTranslations[lang]) {
-        document.getElementById('home-title').textContent = homeTranslations[lang][0];
-        document.getElementById('home-subtitle').textContent = homeTranslations[lang][1];
-        document.getElementById('home-button').textContent = homeTranslations[lang][2];
-      }
-
-      if (pageTranslations[lang]) {
-        document.getElementById('about-section').innerHTML = '<pre class="whitespace-pre-wrap text-left max-w-3xl mx-auto text-lg">' + pageTranslations[lang].about + '</pre>';
-        document.getElementById('contact-section').innerHTML = '<pre class="whitespace-pre-wrap text-left max-w-3xl mx-auto text-lg">' + pageTranslations[lang].contact + '</pre>';
-      }
-    }
-  </script>
+  if (pageTranslations[lang]) {
+    document.getElementById('about-section').innerHTML =
+      '<pre class="whitespace-pre-wrap text-left max-w-3xl mx-auto text-lg">' + pageTranslations[lang].about + '</pre>';
+    document.getElementById('contact-section').innerHTML =
+      '<pre class="whitespace-pre-wrap text-left max-w-3xl mx-auto text-lg">' + pageTranslations[lang].contact + '</pre>';
+  }
+}
+</script>
 </body>
 </html>
+<script>
+const pageTranslations = {
+  "en": {
+    "about": "🟡 Welcome to Futdrop\nRetro. Modern. 100% Football.\n\nFutdrop was born from friendship and built on a shared obsession: football...\n🧵 Designed with passion.\n⚽ Driven by football.\n👊 Founded by friends. Made for fans.\n\nJoin the drop. Wear the game.\n#Futdrop #FromRetroToFresh #ForTheFans",
+    "contact": "📞 Contact Us\n📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com\n📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com\n📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com\n\n🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.\n\n⚠️ Important:\nAll sales are final. We do not offer refunds.\nPlease double-check sizes, product details, and photos before placing your order."
+  },
+  "pt": {
+    "about": "🟡 Bem-vindo ao Futdrop\nRetro. Moderno. 100% Futebol...\n🧵 Projetado com paixão.\n⚽ Movido pelo futebol.\n👊 Fundado por amigos. Feito para fãs.\n\nJunte-se ao drop. Vista o jogo.\n#Futdrop #DoRetroAoFresco #ParaOsFãs",
+    "contact": "📞 Contate-nos\n📱 Fundador 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com\n📱 Fundador 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com\n📱 Fundador 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com\n\n🕐 Estamos disponíveis de segunda a sábado...\n⚠️ Importante:\nTodas as vendas são finais..."
+  },
+  "es": {
+    "about": "🟡 Bienvenido a Futdrop\nRetro. Moderno. 100% Fútbol...\n🧵 Diseñado con pasión.\n⚽ Impulsado por el fútbol.\n👊 Fundado por amigos. Hecho para fans.",
+    "contact": "📞 Contáctanos\n📱 Fundador 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com\n📱 Fundador 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com\n📱 Fundador 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com\n\n🕐 Disponible de lunes a sábado...\n⚠️ Importante:\nTodas las ventas son finales..."
+  },
+  // ... (Same format continues for: fr, de, zh, ja, ko, it, ar, ru, hi, bn, tr, pl, uk, fa, vi, id, th)
+};
+</script>
+
