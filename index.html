@@ -65,7 +65,7 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main class="p-6">
     <!-- Home -->
     <section id="home-section" class="block text-center">
@@ -127,18 +127,20 @@
       const subtitle = document.getElementById('home-subtitle');
       const button = document.getElementById('home-button');
 
-      if (lang === 'pt') {
-        title.textContent = 'Bem-vindo ao FutDrop';
-        subtitle.textContent = 'Seu destino para o melhor do futebol.';
-        button.textContent = 'Começar';
-      } else if (lang === 'fr') {
-        title.textContent = 'Bienvenue chez FutDrop';
-        subtitle.textContent = 'Votre destination pour le meilleur du football.';
-        button.textContent = 'Commencer';
+      const translations = {
+        "en": ["Welcome to FutDrop", "Your destination for the latest football content.", "Get Started"],
+        "pt": ["Bem-vindo ao FutDrop", "Seu destino para o melhor do futebol.", "Começar"],
+        "fr": ["Bienvenue chez FutDrop", "Votre destination pour le meilleur du football.", "Commencer"]
+      };
+
+      if (translations[lang]) {
+        title.textContent = translations[lang][0];
+        subtitle.textContent = translations[lang][1];
+        button.textContent = translations[lang][2];
       } else {
-        title.textContent = 'Welcome to FutDrop';
-        subtitle.textContent = 'Your destination for the latest football content.';
-        button.textContent = 'Get Started';
+        title.textContent = "🌐 Translation coming soon";
+        subtitle.textContent = "This language is not yet supported.";
+        button.textContent = "Get Started";
       }
     }
   </script>
