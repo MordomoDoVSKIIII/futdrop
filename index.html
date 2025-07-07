@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
-  <!-- Navbar -->
+  <!-- Navigation -->
   <nav class="bg-black text-white py-4">
     <div class="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between">
       <div class="text-2xl font-bold">FutDrop</div>
@@ -18,7 +18,7 @@
         <button onclick="showSection('contact')" class="hover:text-gray-400">Contact</button>
 
         <!-- Language Dropdown -->
-        <select id="language-select" onchange="changeLanguage()" class="bg-black text-white border border-white px-2 py-1 rounded max-h-40 overflow-y-auto">
+        <select id="language-select" onchange="changeLanguage()" class="bg-black text-white border border-white px-2 py-1 rounded">
           <option value="en">English</option>
           <option value="pt">Português</option>
           <option value="fr">Français</option>
@@ -42,7 +42,7 @@
         </select>
 
         <!-- Currency Dropdown -->
-        <select id="currency-select" onchange="changeCurrency()" class="bg-black text-white border border-white px-2 py-1 rounded max-h-40 overflow-y-auto">
+        <select id="currency-select" onchange="changeCurrency()" class="bg-black text-white border border-white px-2 py-1 rounded">
           <option value="$">$ US Dollar</option>
           <option value="€">€ Euro</option>
           <option value="¥">¥ Japanese Yen</option>
@@ -65,9 +65,8 @@
     </div>
   </nav>
 
-  <!-- Main -->
+  <!-- Main Sections -->
   <main class="p-6">
-    <!-- Home -->
     <section id="home-section" class="block text-center">
       <section class="relative h-screen bg-cover bg-center" style="background-image: url('https://via.placeholder.com/1920x1080');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -80,32 +79,42 @@
       </section>
     </section>
 
-    <!-- About -->
-    <section id="about-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg">
-      <h2 class="text-3xl font-bold mb-4">🟡 Welcome to Futdrop</h2>
-      <p>Retro. Modern. 100% Football.</p><br />
-      <p>Futdrop was born from friendship and built on a shared obsession: football...</p><br />
-      <ul class="list-disc ml-6">
-        <li>🧵 Designed with passion.</li>
-        <li>⚽ Driven by football.</li>
-        <li>👊 Founded by friends. Made for fans.</li>
-      </ul><br />
-      <p>Join the drop. Wear the game.<br />#Futdrop #FromRetroToFresh #ForTheFans</p>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg">
-      <h2 class="text-3xl font-bold mb-4">📞 Contact Us</h2>
-      <p>📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com</p>
-      <p>📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com</p>
-      <p>📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com</p>
-      <p class="mt-4">🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.</p>
-      <p class="text-red-400 font-semibold mt-4">⚠️ Important:<br>All sales are final. We do not offer refunds.<br>Please double-check sizes, product details, and photos before placing your order.</p>
-    </section>
+    <section id="about-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg"></section>
+    <section id="contact-section" class="hidden text-left max-w-3xl mx-auto mt-10 text-lg"></section>
   </main>
 
-  <!-- Scripts -->
+  <!-- Translation Script -->
   <script>
+    const homeTranslations = {
+      "en": ["Welcome to FutDrop", "Your destination for the latest football content.", "Get Started"],
+      "pt": ["Bem-vindo ao FutDrop", "Seu destino para o melhor do futebol.", "Começar"],
+      "fr": ["Bienvenue chez FutDrop", "Votre destination pour le meilleur du football.", "Commencer"],
+      "es": ["Bienvenido a FutDrop", "Tu destino para el mejor contenido de fútbol.", "Comenzar"],
+      "de": ["Willkommen bei FutDrop", "Dein Ziel für die neuesten Fußballinhalte.", "Loslegen"],
+      "zh": ["欢迎来到FutDrop", "您获取最新足球内容的目的地。", "开始"],
+      "ja": ["FutDropへようこそ", "最新のサッカーコンテンツの目的地です。", "始める"],
+      "ko": ["FutDrop에 오신 것을 환영합니다", "최신 축구 콘텐츠의 목적지입니다.", "시작하기"],
+      "it": ["Benvenuto su FutDrop", "La tua destinazione per i migliori contenuti calcistici.", "Inizia"],
+      "ar": ["مرحبًا بك في FutDrop", "وجهتك لأحدث محتوى كرة القدم.", "ابدأ"],
+      "ru": ["Добро пожаловать в FutDrop", "Ваш источник свежего футбольного контента.", "Начать"],
+      "hi": ["FutDrop में आपका स्वागत है", "फुटबॉल सामग्री के लिए आपका गंतव्य।", "शुरू करें"],
+      "bn": ["FutDrop এ আপনাকে স্বাগতম", "সর্বশেষ ফুটবল সামগ্রীর জন্য আপনার গন্তব্য।", "শুরু করুন"],
+      "tr": ["FutDrop'a Hoş Geldiniz", "En yeni futbol içeriği için adresiniz.", "Başla"],
+      "pl": ["Witamy w FutDrop", "Twoje miejsce na najnowsze treści piłkarskie.", "Zacznij"],
+      "uk": ["Ласкаво просимо до FutDrop", "Ваш пункт призначення для футбольного контенту.", "Почати"],
+      "fa": ["به FutDrop خوش آمدید", "مقصد شما برای محتوای به‌روز فوتبال.", "شروع کنید"],
+      "vi": ["Chào mừng đến với FutDrop", "Nơi hội tụ nội dung bóng đá mới nhất.", "Bắt đầu"],
+      "id": ["Selamat datang di FutDrop", "Tujuan Anda untuk konten sepak bola terbaru.", "Mulai"],
+      "th": ["ยินดีต้อนรับสู่ FutDrop", "จุดหมายปลายทางของคุณสำหรับเนื้อหาฟุตบอลล่าสุด", "เริ่มต้น"]
+    };
+
+    const pageTranslations = {};
+    const sharedAbout = `🟡 Welcome to Futdrop\nRetro. Modern. 100% Football.\n\nFutdrop was born from friendship and built on a shared obsession: football...\n🧵 Designed with passion.\n⚽ Driven by football.\n👊 Founded by friends. Made for fans.\n\nJoin the drop. Wear the game.\n#Futdrop #FromRetroToFresh #ForTheFans`;
+    const sharedContact = `📞 Contact Us\n📱 Founder 1 – WhatsApp: +123 456 7890 | Email: founder1@futdrop.com\n📱 Founder 2 – WhatsApp: +123 456 7891 | Email: founder2@futdrop.com\n📱 Founder 3 – WhatsApp: +123 456 7892 | Email: founder3@futdrop.com\n\n🕐 We're available Monday to Saturday – message us anytime and we’ll get back to you as soon as we can.\n\n⚠️ Important:\nAll sales are final. We do not offer refunds.\nPlease double-check sizes, product details, and photos before placing your order.`;
+    for (const lang in homeTranslations) {
+      pageTranslations[lang] = { about: sharedAbout, contact: sharedContact };
+    }
+
     function showSection(section) {
       document.getElementById('home-section').style.display = 'none';
       document.getElementById('about-section').style.display = 'none';
@@ -123,24 +132,16 @@
 
     function changeLanguage() {
       const lang = document.getElementById('language-select').value;
-      const title = document.getElementById('home-title');
-      const subtitle = document.getElementById('home-subtitle');
-      const button = document.getElementById('home-button');
 
-      const translations = {
-        "en": ["Welcome to FutDrop", "Your destination for the latest football content.", "Get Started"],
-        "pt": ["Bem-vindo ao FutDrop", "Seu destino para o melhor do futebol.", "Começar"],
-        "fr": ["Bienvenue chez FutDrop", "Votre destination pour le meilleur du football.", "Commencer"]
-      };
+      if (homeTranslations[lang]) {
+        document.getElementById('home-title').textContent = homeTranslations[lang][0];
+        document.getElementById('home-subtitle').textContent = homeTranslations[lang][1];
+        document.getElementById('home-button').textContent = homeTranslations[lang][2];
+      }
 
-      if (translations[lang]) {
-        title.textContent = translations[lang][0];
-        subtitle.textContent = translations[lang][1];
-        button.textContent = translations[lang][2];
-      } else {
-        title.textContent = "🌐 Translation coming soon";
-        subtitle.textContent = "This language is not yet supported.";
-        button.textContent = "Get Started";
+      if (pageTranslations[lang]) {
+        document.getElementById('about-section').innerHTML = '<pre class="whitespace-pre-wrap text-left max-w-3xl mx-auto text-lg">' + pageTranslations[lang].about + '</pre>';
+        document.getElementById('contact-section').innerHTML = '<pre class="whitespace-pre-wrap text-left max-w-3xl mx-auto text-lg">' + pageTranslations[lang].contact + '</pre>';
       }
     }
   </script>
