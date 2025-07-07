@@ -6,56 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FutDrop</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Hide Google Translate Banner -->
-  <style>
-    .goog-te-banner-frame.skiptranslate,
-    .goog-logo-link,
-    .goog-te-gadget span {
-      display: none !important;
-    }
-
-    body {
-      top: 0px !important;
-    }
-
-    .goog-te-banner-frame {
-      display: none !important;
-    }
-
-    #google_translate_element {
-      color: white;
-    }
-  </style>
-
-  <!-- Google Translate -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Navbar -->
   <nav class="bg-black text-white py-4">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-6 flex flex-wrap items-center justify-between">
       <div class="text-2xl font-bold">FutDrop</div>
       <div class="flex flex-wrap items-center space-x-4">
         <button onclick="showSection('home')" class="hover:text-gray-400">Home</button>
         <button onclick="showSection('about')" class="hover:text-gray-400">About</button>
         <button onclick="showSection('contact')" class="hover:text-gray-400">Contact</button>
         <!-- Language Switch -->
-        <div id="google_translate_element" class="ml-4"></div>
+        <button onclick="switchLanguage()" class="hover:text-gray-400">Language: <span id="lang">EN</span></button>
         <!-- Currency Button -->
-        <button onclick="toggleCurrency()" class="bg-gray-700 px-3 py-1 rounded text-white hover:bg-gray-600">Change Currency</button>
+        <button onclick="toggleCurrency()" class="hover:text-gray-400">Currency: <span id="curr">$</span></button>
       </div>
     </div>
   </nav>
 
-  <!-- Sections -->
+  <!-- Main Content -->
   <main id="content" class="p-6">
 
     <!-- Home Section -->
@@ -64,10 +35,11 @@
         style="background-image: url('https://via.placeholder.com/1920x1080');">
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col justify-center items-center h-full text-center">
-          <h1 class="text-5xl font-extrabold leading-tight">Welcome to FutDrop</h1>
-          <p class="mt-4 text-lg">Your destination for the latest football content.</p>
+          <h1 class="text-5xl font-extrabold leading-tight" id="home-title">Welcome to FutDrop</h1>
+          <p class="mt-4 text-lg" id="home-subtitle">Your destination for the latest football content.</p>
           <p class="mt-4 text-yellow-400 price" data-price="29.99">$29.99</p>
-          <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600">Get Started</a>
+          <a href="#" class="mt-6 px-8 py-3 bg-blue-500 text-white rounded-lg text-lg hover:bg-blue-600"
+            id="home-button">Get Started</a>
         </div>
       </section>
     </section>
@@ -116,14 +88,15 @@
   <!-- Script -->
   <script>
     const currencySymbols = ['$', '€', '₹', '£', '¥'];
-    let currentSymbolIndex = 0;
+    let currentCurrency = 0;
 
     function toggleCurrency() {
-      currentSymbolIndex = (currentSymbolIndex + 1) % currencySymbols.length;
-      const newSymbol = currencySymbols[currentSymbolIndex];
+      currentCurrency = (currentCurrency + 1) % currencySymbols.length;
+      const symbol = currencySymbols[currentCurrency];
+      document.getElementById('curr').textContent = symbol;
       document.querySelectorAll('.price').forEach(el => {
         const base = el.getAttribute('data-price');
-        el.textContent = newSymbol + parseFloat(base).toFixed(2);
+        el.textContent = symbol + parseFloat(base).toFixed(2);
       });
     }
 
@@ -133,7 +106,37 @@
       document.getElementById('contact-section').style.display = 'none';
       document.getElementById(`${section}-section`).style.display = 'block';
     }
+
+    // Fake language switching
+    const languages = ['EN', 'PT', 'FR'];
+    let currentLang = 0;
+
+    function switchLanguage() {
+      currentLang = (currentLang + 1) % languages.length;
+      const lang = languages[currentLang];
+      document.getElementById('lang').textContent = lang;
+
+      // Simulated translation for home section only
+      const title = document.getElementById('home-title');
+      const subtitle = document.getElementById('home-subtitle');
+      const button = document.getElementById('home-button');
+
+      if (lang === 'PT') {
+        title.textContent = 'Bem-vindo ao FutDrop';
+        subtitle.textContent = 'Seu destino para o melhor do futebol.';
+        button.textContent = 'Começar';
+      } else if (lang === 'FR') {
+        title.textContent = 'Bienvenue chez FutDrop';
+        subtitle.textContent = 'Votre destination pour le meilleur du football.';
+        button.textContent = 'Commencer';
+      } else {
+        title.textContent = 'Welcome to FutDrop';
+        subtitle.textContent = 'Your destination for the latest football content.';
+        button.textContent = 'Get Started';
+      }
+    }
   </script>
+
 </body>
 
 </html>
